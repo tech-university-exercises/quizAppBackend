@@ -1,11 +1,20 @@
 const Server = require('../../server');
+const Models = require('../../models');
 
 describe('Api for question and answer mapping test', () => {
+  afterEach((done) => {
+    Models.users.destroy({
+      where: { username: 'anmolvarma' },
+      truncate: true,
+    }).then(() => {
+      done();
+    }).catch();
+  });
   test('check the statusCode for the api', (done) => {
     const options = {
       method: 'POST',
       payload: {
-        username: 'anmol5varma',
+        username: 'anmolvarma',
       },
       url: '/users',
     };
