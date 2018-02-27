@@ -14,20 +14,30 @@ describe('Api for question and answer mapping test', () => {
   test('Should have questionId', (done) => {
     const options = {
       method: 'GET',
-      url: '/getQuestionsAndAnswers',
+      url: '/getQuestion',
     };
     Server.inject(options, (response) => {
-      expect(response.result.allQuestionsWithAnswer[0].hasOwnProperty('questionId')).toEqual(true);
+      expect(response.result[0].hasOwnProperty('questionId')).toEqual(true);
       done();
     });
   });
   test('Should have question', (done) => {
     const options = {
       method: 'GET',
-      url: '/getQuestionsAndAnswers',
+      url: '/getQuestion',
     };
     Server.inject(options, (response) => {
-      expect(response.result.allQuestionsWithAnswer[0].hasOwnProperty('question')).toEqual(true);
+      expect(response.result[0].hasOwnProperty('question')).toEqual(true);
+      done();
+    });
+  });
+  test('Should have question', (done) => {
+    const options = {
+      method: 'GET',
+      url: '/getQuestion',
+    };
+    Server.inject(options, (response) => {
+      expect(response.result[0].hasOwnProperty('options')).toEqual(true);
       done();
     });
   });

@@ -21,7 +21,7 @@ describe('Api for question and answer mapping test', () => {
       done();
     });
   });
-  test('Check whether the object in array has a property questionId', (done) => {
+  test('Check whether the object in array has a property answer', (done) => {
     const options = {
       method: 'GET',
       url: '/getQuestionsAndAnswers',

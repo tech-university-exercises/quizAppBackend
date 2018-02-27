@@ -8,7 +8,6 @@ module.exports = [
     handler: (request, reply) => {
       Models.question_bank.findAll().then((questionsInDB) => {
         let insertArrayCopy;
-        console.log(questionsInDB.length, '>>');
         if (questionsInDB.length === 0) {
           return getAnswers()
             .then(questionList => questionList.allQuestionsWithAnswer.map((eachEntry) => {
@@ -33,7 +32,7 @@ module.exports = [
           questionObject.question = eachEntry.question;
           questionObject.questionId = eachEntry.questionId;
           questionObject.options = eachEntry.options;
-          questionObject.answer = eachEntry.correct;
+          questionObject.correct = eachEntry.correct;
           return questionObject;
         });
         return reply(questionListObject);
