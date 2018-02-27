@@ -13,6 +13,7 @@ module.exports = [
           return getAnswers()
             .then(questionList => questionList.allQuestionsWithAnswer.map((eachEntry) => {
               const questionObject = {};
+              // TO DO take only startsWith options
               const {
                 questionId, question, answer, ...optionsString
               } = eachEntry;
