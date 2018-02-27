@@ -3,15 +3,15 @@ const rp = require('request-promise');
 const getAnswers = () => {
   const getAllQuestionUrl = 'https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/allQuestions';
   const getAnswerByQuestionId = 'https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/findAnswerById/';
-  let allQuestions;
+  let allQuestion;
   return rp.get(getAllQuestionUrl)
     .then((result) => {
       const list = JSON.parse(result);
-      allQuestions = list.allQuestions;
+      allQuestion = list.allQuestions;
       return list.allQuestions.map(eachQuestion => rp.get(`${getAnswerByQuestionId}${eachQuestion.questionId}`));
     })
     .then(list => Promise.all(list))
-    .then(answerList => allQuestions.map((entry, index) => {
+    .then(answerList => allQuestion.map((entry, index) => {
       const newEntry = entry;
       newEntry.answer = JSON.parse(answerList[index]).answer;
       return newEntry;
