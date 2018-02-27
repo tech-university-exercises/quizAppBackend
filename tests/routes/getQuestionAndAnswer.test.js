@@ -1,13 +1,23 @@
 const Server = require('../../server');
 
-describe('Server test', () => {
-  test('responds with a list, keys being author name', (done) => {
+describe('Api for question and answer mapping test', () => {
+  test('check the statusCode for the api', (done) => {
     const options = {
       method: 'GET',
       url: '/getQuestionsAndAnswers',
     };
     Server.inject(options, (response) => {
       expect(response.statusCode).toEqual(200);
+      done();
+    });
+  });
+  test('Check whether the object in array has a property questionId', (done) => {
+    const options = {
+      method: 'GET',
+      url: '/getQuestionsAndAnswers',
+    };
+    Server.inject(options, (response) => {
+      expect(response.result.allQuestionsWithAnswer[0].hasOwnProperty('questionId')).toEqual(true);
       done();
     });
   });
