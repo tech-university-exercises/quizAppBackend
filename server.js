@@ -13,7 +13,7 @@ if (!module.parent) {
     if (err) {
       throw (err);
     }
-    console.log(`Server running at ${server.uri.info}`);
+    console.log(`Server running at ${server.info.uri}`);
   });
 }
 
