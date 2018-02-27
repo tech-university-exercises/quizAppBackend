@@ -14,4 +14,17 @@ describe('Api for question and answer mapping test', () => {
       done();
     });
   });
+  test('check the statusCode for the api', (done) => {
+    const options = {
+      method: 'POST',
+      payload: {
+        username: 'anmolvarma',
+      },
+      url: '/users',
+    };
+    Server.inject(options, (response) => {
+      expect(response.result.message).toEqual('New user comes');
+      done();
+    });
+  });
 });
