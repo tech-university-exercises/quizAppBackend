@@ -21,4 +21,24 @@ describe('Api for question and answer mapping test', () => {
       done();
     });
   });
+  test('Check whether the object in array has a property questionId', (done) => {
+    const options = {
+      method: 'GET',
+      url: '/getQuestionsAndAnswers',
+    };
+    Server.inject(options, (response) => {
+      expect(response.result.allQuestionsWithAnswer[0].hasOwnProperty('answer')).toEqual(true);
+      done();
+    });
+  });
+  test('Check for an invalid request', (done) => {
+    const options = {
+      method: 'POST',
+      url: '/getQuestionsAndAnswers',
+    };
+    Server.inject(options, (response) => {
+      expect(response.statusCode).toEqual(404);
+      done();
+    });
+  });
 });
