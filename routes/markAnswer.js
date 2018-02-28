@@ -5,13 +5,24 @@ module.exports = [
     method: 'POST',
     path: '/question',
     handler: (request, reply) => {
-      const newOptionsMarked = request.payload.optionsMarked;
-      Models.users.update({
-        optionsMarked: newOptionsMarked,
-      }, {
+      const newOptionsMarked = JSON.parse(request.payload);
+      let optionsMarkedTillNow;
+      console.log(newOptionsMarked);
+      Models.users.findOne({
         where: {
-          username: request.payload.username,
+          username: newOptionsMarked.username,
         },
-      }).then(() => reply({ statusCode: 200, message: 'Option marked' })).catch(err => reply({ statusCode: 500, message: err.message }));
+      }).then((response) => {
+        optionsMarkedTillNow = response.optionsMarked;
+        if (optionsMarkedTillNow === null) { optionsMarkedTillNow = {}; }
+        optionsMarkedTillNow[newOptionsMarked.questionId] = newOptionsMarked.option;
+        return Models.users.update({
+          optionsMarked: optionsMarkedTillNow,
+        }, {
+          where: {
+            username: newOptionsMarked.username,
+          },
+        });
+      }).then(() => reply(optionsMarkedTillNow)).catch(err => reply(err.message));
     },
   }];

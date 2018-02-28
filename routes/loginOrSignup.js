@@ -5,7 +5,8 @@ module.exports = [
     method: 'POST',
     path: '/users',
     handler: (request, reply) => {
-      Models.users.findOrCreate({ where: { username: request.payload.username } })
+      // console.log(JSON.parse(request.payload), '><><><');
+      Models.users.findOrCreate({ where: { username: JSON.parse(request.payload).username } })
         .spread((queryResult, isCreated) => {
           if (!isCreated) {
             return reply({
