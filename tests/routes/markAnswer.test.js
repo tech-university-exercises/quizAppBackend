@@ -23,11 +23,11 @@ describe('Api for marking options in test', () => {
   test('check the statusCode for the api', (done) => {
     const options = {
       method: 'POST',
-      payload: {
+      payload: JSON.stringify({
         optionsMarked: {
           question1: 'My name is anmol',
         },
-      },
+      }),
       url: '/question',
     };
     Server.inject(options, (response) => {

@@ -1,6 +1,26 @@
 const Server = require('../../server');
+const Models = require('../../models');
 
 describe('Api for question and answer mapping test', () => {
+  beforeEach((done) => {
+    Models.users.create({
+      username: 'anmolvarma',
+      score: 23,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }).then(() => {
+      done();
+    }).catch();
+  });
+
+  afterEach((done) => {
+    Models.users.destroy({
+      where: { userid: 'anmolvarma' },
+      truncate: true,
+    }).then(() => {
+      done();
+    }).catch();
+  });
   test('check the statusCode for the api', (done) => {
     const options = {
       method: 'GET',

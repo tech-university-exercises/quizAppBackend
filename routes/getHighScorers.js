@@ -8,7 +8,6 @@ module.exports = [
       Models.users.findAll({
         order: ['score'],
       }).then((response) => {
-        console.log(JSON.stringify(response));
         const scoreList = response.filter((eachEntry) => {
           const { score } = eachEntry;
           if (score) { return true; }
