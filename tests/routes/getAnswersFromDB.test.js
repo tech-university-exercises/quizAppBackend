@@ -1,6 +1,32 @@
 const Server = require('../../server');
+const Models = require('../../models');
 
 describe('Api for question and answer mapping test', () => {
+  beforeEach((done) => {
+    Models.question_bank.create({
+      question: 'What is the capital of India',
+      questionId: 12,
+      options: {
+        option1: 'New Delhi',
+        option2: 'MP',
+        option3: 'UP',
+        option4: 'Bangalore',
+      },
+      correct: 'New Delhi',
+    }).then(() => {
+      done();
+    }).catch();
+  });
+
+  afterEach((done) => {
+    Models.question_bank.destroy({
+      where: { questionId: 12 },
+      truncate: true,
+    }).then(() => {
+      done();
+    }).catch();
+  });
+
   test('check the statusCode for the api', (done) => {
     const options = {
       method: 'GET',

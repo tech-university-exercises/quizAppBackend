@@ -2,6 +2,15 @@ const Server = require('../../server');
 const Models = require('../../models');
 
 describe('Api for marking options in test', () => {
+  beforeAll((done) => {
+    Models.users.destroy({
+      where: { username: 'anmolvarma' },
+      truncate: true,
+    }).then(() => {
+      done();
+    });
+  });
+
   beforeEach((done) => {
     Models.users.create({
       username: 'anmolvarma',
