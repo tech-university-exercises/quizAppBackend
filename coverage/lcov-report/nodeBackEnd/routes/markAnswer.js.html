@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">83.33% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/6</span>
+        <span class='fraction'>3/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">25% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/3</span>
+        <span class='fraction'>1/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">30% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>3/10</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -60,21 +60,43 @@
 15
 16
 17
-18</td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Models = require('../models');
@@ -84,14 +106,25 @@ module.exports = [
     method: 'POST',
     path: '/question',
     handler: (request, reply) =&gt; {
-      const newOptionsMarked = request.payload.optionsMarked;
-      Models.users.update({
-        optionsMarked: newOptionsMarked,
-      }, {
+      const newOptionsMarked = JSON.parse(request.payload);
+      let optionsMarkedTillNow;
+<span class="cstat-no" title="statement not covered" >      console.log(newOptionsMarked);</span>
+<span class="cstat-no" title="statement not covered" >      Models.users.findOne({</span>
         where: {
-          username: request.payload.username,
+          username: newOptionsMarked.username,
         },
-      }).then(() =&gt; reply({ statusCode: 200, message: 'Option marked' })).catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >reply({ statusCode: 500, message: err.message }))</span>;
+      }).then(<span class="fstat-no" title="function not covered" >(r</span>esponse) =&gt; {
+<span class="cstat-no" title="statement not covered" >        optionsMarkedTillNow = response.optionsMarked;</span>
+<span class="cstat-no" title="statement not covered" >        if (optionsMarkedTillNow === null) { <span class="cstat-no" title="statement not covered" >optionsMarkedTillNow = {}; </span>}</span>
+<span class="cstat-no" title="statement not covered" >        optionsMarkedTillNow[newOptionsMarked.questionId] = newOptionsMarked.option;</span>
+<span class="cstat-no" title="statement not covered" >        return Models.users.update({</span>
+          optionsMarked: optionsMarkedTillNow,
+        }, {
+          where: {
+            username: newOptionsMarked.username,
+          },
+        });
+      }).then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >reply(optionsMarkedTillNow))</span>.catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >reply(err.message))</span>;
     },
   }];
 &nbsp;</pre></td></tr>
@@ -100,7 +133,7 @@ module.exports = [
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 28 2018 00:06:09 GMT+0530 (IST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 28 2018 10:27:26 GMT+0530 (IST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

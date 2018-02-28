@@ -13,9 +13,9 @@ describe('Api for question and answer mapping test', () => {
   test('check the statusCode for the api', (done) => {
     const options = {
       method: 'POST',
-      payload: {
+      body: JSON.stringify({
         username: 'anmolvarma',
-      },
+      }),
       url: '/users',
     };
     Server.inject(options, (response) => {
@@ -26,9 +26,9 @@ describe('Api for question and answer mapping test', () => {
   test('check the statusCode for the api', (done) => {
     const options = {
       method: 'POST',
-      payload: {
+      body: JSON.stringify({
         username: 'anmolvarma',
-      },
+      }),
       url: '/users',
     };
     Server.inject(options, (response) => {
