@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92.59% </span>
+        <span class="strong">11.11% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>25/27</span>
+        <span class='fraction'>3/27</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>2/2</span>
+        <span class='fraction'>0/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">77.78% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/9</span>
+        <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92.59% </span>
+        <span class="strong">11.11% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>25/27</span>
+        <span class='fraction'>3/27</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -84,44 +84,44 @@
 39
 40
 41
-42</td><td class="line-coverage quiet"><span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+42</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-yes">36x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -132,37 +132,37 @@ module.exports = [
   {
     method: 'GET',
     path: '/getQuestion',
-    handler: (request, reply) =&gt; {
-      Models.question_bank.findAll().then((questionsInDB) =&gt; {
+    handler: <span class="fstat-no" title="function not covered" >(r</span>equest, reply) =&gt; {
+<span class="cstat-no" title="statement not covered" >      Models.question_bank.findAll().then(<span class="fstat-no" title="function not covered" >(q</span>uestionsInDB) =&gt; {</span>
         let insertArrayCopy;
-        if (questionsInDB.length === 0) {
-          return getAnswers()
-            .then(questionList =&gt; questionList.allQuestionsWithAnswer.map((eachEntry) =&gt; {
-              const questionObject = {};
+<span class="cstat-no" title="statement not covered" >        if (questionsInDB.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >          return getAnswers()</span>
+            .then(<span class="fstat-no" title="function not covered" >qu</span>estionList =&gt; <span class="cstat-no" title="statement not covered" >questionList.allQuestionsWithAnswer.map(<span class="fstat-no" title="function not covered" >(e</span>achEntry) =&gt; {</span>
+              const questionObject = <span class="cstat-no" title="statement not covered" >{};</span>
               // TO DO take only startsWith options
               const {
                 questionId, question, answer, ...optionsString
-              } = eachEntry;
-              questionObject.question = question;
-              questionObject.questionId = questionId;
-              questionObject.correct = answer;
-              questionObject.options = optionsString;
-              return questionObject;
-            })).then((insertArray) =&gt; {
-              insertArrayCopy = insertArray;
-              return Models.question_bank.bulkCreate(insertArray);
-            }).then(() =&gt; reply(insertArrayCopy))
+              } = <span class="cstat-no" title="statement not covered" >eachEntry;</span>
+<span class="cstat-no" title="statement not covered" >              questionObject.question = question;</span>
+<span class="cstat-no" title="statement not covered" >              questionObject.questionId = questionId;</span>
+<span class="cstat-no" title="statement not covered" >              questionObject.correct = answer;</span>
+<span class="cstat-no" title="statement not covered" >              questionObject.options = optionsString;</span>
+<span class="cstat-no" title="statement not covered" >              return questionObject;</span>
+            })).then(<span class="fstat-no" title="function not covered" >(i</span>nsertArray) =&gt; {
+<span class="cstat-no" title="statement not covered" >              insertArrayCopy = insertArray;</span>
+<span class="cstat-no" title="statement not covered" >              return Models.question_bank.bulkCreate(insertArray);</span>
+            }).then(<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >reply(insertArrayCopy))</span>
             .catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >reply({ statusCode: 500, message: 'Server not responding', error: err.message }))</span>;
         }
-        const questionListObject = questionsInDB.map((eachEntry) =&gt; {
-          const questionObject = {};
-          questionObject.question = eachEntry.question;
-          questionObject.questionId = eachEntry.questionId;
-          questionObject.options = eachEntry.options;
-          questionObject.correct = eachEntry.correct;
-          return questionObject;
+        const questionListObject = <span class="cstat-no" title="statement not covered" >questionsInDB.map(<span class="fstat-no" title="function not covered" >(e</span>achEntry) =&gt; {</span>
+          const questionObject = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >          questionObject.question = eachEntry.question;</span>
+<span class="cstat-no" title="statement not covered" >          questionObject.questionId = eachEntry.questionId;</span>
+<span class="cstat-no" title="statement not covered" >          questionObject.options = eachEntry.options;</span>
+<span class="cstat-no" title="statement not covered" >          questionObject.correct = eachEntry.correct;</span>
+<span class="cstat-no" title="statement not covered" >          return questionObject;</span>
         });
-        return reply(questionListObject);
+<span class="cstat-no" title="statement not covered" >        return reply(questionListObject);</span>
       }).catch(<span class="fstat-no" title="function not covered" >er</span>r =&gt; <span class="cstat-no" title="statement not covered" >reply({ statusCode: 500, message: 'Server not responding', error: err.message }))</span>;
     },
   }];
@@ -172,7 +172,7 @@ module.exports = [
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 28 2018 14:50:36 GMT+0530 (IST)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 28 2018 15:04:18 GMT+0530 (IST)
 </div>
 </div>
 <script src="../../prettify.js"></script>

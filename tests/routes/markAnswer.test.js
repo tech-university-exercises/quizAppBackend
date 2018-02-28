@@ -24,9 +24,7 @@ describe('Api for marking options in test', () => {
     const options = {
       method: 'POST',
       payload: JSON.stringify({
-        optionsMarked: {
-          question1: 'My name is anmol',
-        },
+        username: 'anmolvarma', questionId: 12, option: 'Hello',
       }),
       url: '/question',
     };

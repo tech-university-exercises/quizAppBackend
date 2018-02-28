@@ -5,9 +5,10 @@ module.exports = [
     method: 'POST',
     path: '/question',
     handler: (request, reply) => {
+      console.log(typeof request.payload, request.payload);
       const newOptionsMarked = JSON.parse(request.payload);
       let optionsMarkedTillNow;
-      console.log(newOptionsMarked);
+      console.log(newOptionsMarked, '**');
       Models.users.findOne({
         where: {
           username: newOptionsMarked.username,
